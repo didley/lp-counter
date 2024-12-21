@@ -71,14 +71,14 @@ struct ContentView: View {
                 }
                 .foregroundColor(.gray)
                 .simultaneousGesture(TapGesture().onEnded { decrement() })
-                 .simultaneousGesture(LongPressGesture(minimumDuration: 0.7).onEnded { _ in
+                .simultaneousGesture(LongPressGesture(minimumDuration: 0.7).onEnded { _ in
                      holdDecrement()
                  })
                 
                 Button(action: {}) {
                     Image(systemName: "plus")
                         .font(.title)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .foregroundColor(.gray)
                 .simultaneousGesture(TapGesture().onEnded { increment() })
