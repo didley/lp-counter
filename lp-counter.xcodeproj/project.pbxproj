@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69B5D1592D1680A30026CBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		69DFA41B2D16672100C0FCD2 /* lp-counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lp-counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DFA41E2D16672100C0FCD2 /* lp_counterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lp_counterApp.swift; sourceTree = "<group>"; };
 		69DFA4202D16672100C0FCD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		69DFA41D2D16672100C0FCD2 /* lp-counter */ = {
 			isa = PBXGroup;
 			children = (
+				69B5D1592D1680A30026CBFC /* Info.plist */,
 				69DFA41E2D16672100C0FCD2 /* lp_counterApp.swift */,
 				69DFA4202D16672100C0FCD2 /* ContentView.swift */,
 				69DFA4242D16672200C0FCD2 /* Assets.xcassets */,
@@ -275,6 +277,9 @@
 				DEVELOPMENT_TEAM = L58VPV9H35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "lp-counter/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LP Counter";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -305,6 +310,9 @@
 				DEVELOPMENT_TEAM = L58VPV9H35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "lp-counter/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LP Counter";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
