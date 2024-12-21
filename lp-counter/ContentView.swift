@@ -31,11 +31,15 @@ struct ContentView: View {
             counterView(count: counter.counter1,
                         increment: { counter.counter1 += 1 },
                         decrement: { counter.counter1 -= 1 },
+                        holdIncement: { counter.counter1 += 10 },
+                        holdDecrement: { counter.counter1 -= 10 },
                         flipped: true)
             
             counterView(count: counter.counter2,
                         increment: { counter.counter2 += 1 },
                         decrement: { counter.counter2 -= 1 },
+                        holdIncement: { counter.counter2 += 10 },
+                        holdDecrement: { counter.counter2 -= 10 },
                         flipped: false)
         }
         .background(.black)
@@ -43,7 +47,14 @@ struct ContentView: View {
     }
     
     @ViewBuilder
-    func counterView(count: Int, increment: @escaping () -> Void, decrement: @escaping () -> Void, flipped: Bool) -> some View {
+    func counterView(
+        count: Int,
+        increment: @escaping () -> Void,
+        decrement: @escaping () -> Void,
+        holdIncement: @escaping () -> Void,
+        holdDecrement: @escaping () -> Void,
+        flipped: Bool
+    ) -> some View {
         VStack() {
             Text("\(count)")
                 .font(.system(size: 200).bold().italic())
@@ -53,18 +64,27 @@ struct ContentView: View {
                 .contentTransition(.numericText())
             
             HStack() {
-                Button(action: decrement) {
+                Button(action: {}) {
                     Image(systemName: "minus")
                         .font(.title)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }.foregroundColor(.gray)
+                }
+                .foregroundColor(.gray)
+                .simultaneousGesture(TapGesture().onEnded { decrement() })
+                 .simultaneousGesture(LongPressGesture(minimumDuration: 0.7).onEnded { _ in
+                     holdDecrement()
+                 })
                 
-                
-                Button(action: increment) {
+                Button(action: {}) {
                     Image(systemName: "plus")
                         .font(.title)
                         .frame(maxWidth: .infinity)
-                }.foregroundColor(.gray)
+                }
+                .foregroundColor(.gray)
+                .simultaneousGesture(TapGesture().onEnded { increment() })
+                .simultaneousGesture(LongPressGesture(minimumDuration: 0.7).onEnded { _ in
+                     holdIncement()
+                })
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
