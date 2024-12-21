@@ -1,61 +1,79 @@
-//
-//  ContentView.swift
-//  lp-counter
-//
-//  Created by Dylan Lamont on 21/12/2024.
-//
-
 import SwiftUI
 import SwiftData
 
+@Model
+class CounterData {
+    var counter1: Int
+    var counter2: Int
+    
+    init(counter1: Int = 20, counter2: Int = 20) {
+        self.counter1 = counter1
+        self.counter2 = counter2
+    }
+}
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @Query private var counters: [CounterData]
+    
+    var counter: CounterData {
+        if let firstCounter = counters.first {
+            return firstCounter
+        } else {
+            let newCounter = CounterData()
+            modelContext.insert(newCounter)
+            return newCounter
+        }
+    }
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
+        VStack() {
+            counterView(count: counter.counter1,
+                        increment: { counter.counter1 += 1 },
+                        decrement: { counter.counter1 -= 1 },
+                        flipped: true)
+            
+            counterView(count: counter.counter2,
+                        increment: { counter.counter2 += 1 },
+                        decrement: { counter.counter2 -= 1 },
+                        flipped: false)
         }
+        .background(.black)
+        .ignoresSafeArea()
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+    
+    @ViewBuilder
+    func counterView(count: Int, increment: @escaping () -> Void, decrement: @escaping () -> Void, flipped: Bool) -> some View {
+        VStack() {
+            Text("\(count)")
+                .font(.system(size: 200).bold().italic())
+                .foregroundStyle(.white)
+                .padding(.bottom, 20)
+                .animation(.spring(dampingFraction: 0.5), value: count)
+                .contentTransition(.numericText())
+            
+            HStack() {
+                Button(action: decrement) {
+                    Image(systemName: "minus")
+                        .font(.title)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }.foregroundColor(.gray)
+                
+                
+                Button(action: increment) {
+                    Image(systemName: "plus")
+                        .font(.title)
+                        .frame(maxWidth: .infinity)
+                }.foregroundColor(.gray)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .rotationEffect(.degrees(flipped ? 180: 0))
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: CounterData.self, inMemory: true)
 }
+
