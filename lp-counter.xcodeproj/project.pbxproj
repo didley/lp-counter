@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69B5D15B2D1697210026CBFC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B5D15A2D1697210026CBFC /* Launch Screen.storyboard */; };
 		69DFA41F2D16672100C0FCD2 /* lp_counterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DFA41E2D16672100C0FCD2 /* lp_counterApp.swift */; };
 		69DFA4212D16672100C0FCD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DFA4202D16672100C0FCD2 /* ContentView.swift */; };
 		69DFA4252D16672200C0FCD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DFA4242D16672200C0FCD2 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 
 /* Begin PBXFileReference section */
 		69B5D1592D1680A30026CBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		69B5D15A2D1697210026CBFC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		69DFA41B2D16672100C0FCD2 /* lp-counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lp-counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DFA41E2D16672100C0FCD2 /* lp_counterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lp_counterApp.swift; sourceTree = "<group>"; };
 		69DFA4202D16672100C0FCD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				69DFA4202D16672100C0FCD2 /* ContentView.swift */,
 				69DFA4242D16672200C0FCD2 /* Assets.xcassets */,
 				69DFA4262D16672200C0FCD2 /* Preview Content */,
+				69B5D15A2D1697210026CBFC /* Launch Screen.storyboard */,
 			);
 			path = "lp-counter";
 			sourceTree = "<group>";
@@ -127,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B5D15B2D1697210026CBFC /* Launch Screen.storyboard in Resources */,
 				69DFA4282D16672200C0FCD2 /* Preview Assets.xcassets in Resources */,
 				69DFA4252D16672200C0FCD2 /* Assets.xcassets in Resources */,
 			);
@@ -271,6 +275,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"lp-counter/Preview Content\"";
@@ -283,6 +288,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -293,6 +299,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "didley.lp-counter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,6 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"lp-counter/Preview Content\"";
@@ -316,6 +324,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -326,6 +335,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "didley.lp-counter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
